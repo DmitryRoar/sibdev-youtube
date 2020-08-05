@@ -5,7 +5,6 @@ import {Auth} from './components/Auth/Auth'
 function App() {
   return (
     <>
-      <h1>Hello</h1>
       <Switch>
         <Route path='/' component={Auth} />
       </Switch>
