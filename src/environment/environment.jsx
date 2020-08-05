@@ -1,0 +1,1 @@
+export const authToken = 'AIzaSyDtRI-JNwuAiCH4LOpnPQd8l96SEo8qtvw'
