@@ -51,8 +51,18 @@ button {
         width: 100%;
         font-size: 20px;
         padding: 12px 15px;
-        border: 1px solid #1390E5;
+        border: 1px solid #d1d1d1; 
         border-radius: 5px;
+
+        &:focus {
+            border: 1px solid #1390E5;
+            background: #eef7fe;
+        }
+
+        &:focus-within .far {
+            color :red;
+            background: green;
+        }
     }
 
     &.error {

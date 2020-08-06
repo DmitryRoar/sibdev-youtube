@@ -1,12 +1,15 @@
 import React from 'react'
-import {Route, Switch} from 'react-router-dom'
-import {Auth} from './components/Auth/Auth'
+import {Route, Switch, Redirect} from 'react-router-dom'
+import Auth from './pages/Auth/Auth'
+import {Home} from './pages/Home/Home'
+
 
 function App() {
   return (
     <>
       <Switch>
-        <Route path='/' component={Auth} />
+        <Route path='/auth' component={Auth} />
+        {localStorage.getItem('token') ? <Route path='/' component={Home}/> : <Redirect to='/auth'/>}
       </Switch>
     </>
   )
