@@ -9,7 +9,7 @@ function App() {
     <>
       <Switch>
         <Route path='/auth' component={Auth} />
-        {localStorage.getItem('token') ? <Route path='/' component={Home}/> : <Redirect to='/auth'/>}
+        {localStorage.getItem('token') ?  <Route path='/' component={Home}/> : <Redirect to='/auth'/>}
       </Switch>
     </>
   )

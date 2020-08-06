@@ -10,10 +10,12 @@ const Auth = ({history}) => {
         email: state.auth.email,
         password: state.auth.password,
         hidden: state.auth.passwordType,
-        error: state.auth.error
+        error: state.auth.error,
+        authorized: state.auth.authorized
     }))
 
-    const submitHandler = () => {
+    const preSubmitHandler = () => {
+
         if (!(authReducer.email.trim() && authReducer.password.trim())) return
         const data = {
             email: authReducer.email,
@@ -21,7 +23,14 @@ const Auth = ({history}) => {
             returnSecureToken: true
         }
 
-        dispatch(submitButton(data, history))
+        dispatch(submitButton(data))
+    }
+
+    const submitHandler = (event) => {
+        if (authReducer.authorized) {
+            history.push('/')
+        }
+
     }
 
     const changeInputHandler = (input, event) => {
@@ -42,7 +51,7 @@ const Auth = ({history}) => {
                     <img src="./assets/img/sibdevLogo.svg" alt=""/>
                 </div>
                 
-                <div className={classes.Form}>
+                <form className={classes.Form} onSubmit={submitHandler}>
                     <p className={classes.Title}>Вход</p>
 
                     <div className={clsInputs.join(' ')}>
@@ -73,11 +82,12 @@ const Auth = ({history}) => {
 
                     <button 
                     className={classes.SignIn}
-                    onClick={submitHandler}
+                    onClick={preSubmitHandler}
+                    type='submit'
                     >
                         Войти
                     </button>
-                </div>
+                </form>
             </div>
         </div>
     )

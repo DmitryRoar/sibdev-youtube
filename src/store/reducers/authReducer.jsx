@@ -1,15 +1,18 @@
-import {CHANGE_TYPE, SOMETHING_ERROR, CHANGE_INPUT_PASSWORD, CHANGE_INPUT_EMAIL, SUBMIT_BUTTON, RESET_INPUTS} from "../actions/types"
+import {CHANGE_TYPE, SOMETHING_ERROR, CHANGE_INPUT_PASSWORD, CHANGE_INPUT_EMAIL, SUBMIT_BUTTON, RESET_INPUTS, GET_TOKEN} from "../actions/types"
 
 const intialState = {
     email: '',
     password: '',
     error: false,
     passwordType: true,
-    submit: false
+    submit: false,
+    authorized: false
 }
 
 export const authReducer = (state = intialState, action) => {
     switch (action.type) {
+        case GET_TOKEN:
+            return {...state, authorized: true}
         case CHANGE_INPUT_EMAIL: 
             return {...state, email: action.payload, error: false}
         case CHANGE_INPUT_PASSWORD: 
