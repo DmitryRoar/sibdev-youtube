@@ -29,6 +29,7 @@ const Auth = ({history}) => {
     const submitHandler = (event) => {
         if (authReducer.authorized) {
             history.push('/')
+            event.preventDefault()
         }
 
     }
@@ -74,7 +75,7 @@ const Auth = ({history}) => {
                             value={authReducer.password}
                             autoComplete='off'
                         />
-                        <button onClick={dispatch.bind(null, changeType())}>
+                        <button onClick={dispatch.bind(null, changeType())} type='button'>
                             {/* доделать */}
                             {authReducer.hidden ? <i className="far fa-eye-slash"></i> : <i className="far fa-eye"></i>}
                         </button>

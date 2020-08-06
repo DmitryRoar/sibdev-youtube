@@ -1,0 +1,37 @@
+.SearchWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px);
+    flex-direction: column;
+}
+
+.Title {
+    margin: 0 0 40px 0;
+    font-size: 36px;
+}
+
+.Form {
+    display: flex;
+
+    input {
+        padding: 13px 500px 13px 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px 0 0 4px;
+        font-size: 20px;
+        width: 100%;
+
+        &:focus {
+            border: 1px solid #1390E5;
+            background: #eef7fe;
+        }
+    }
+
+    button {
+        background: var(--theme-color);
+        color: #fff;
+        padding: 14px 20px;
+        border-radius: 0 4px 4px 0;
+        font-size: 20px;
+    }
+}
