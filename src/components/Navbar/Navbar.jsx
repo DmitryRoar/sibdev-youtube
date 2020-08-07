@@ -4,7 +4,7 @@ import {NavLink, Link} from 'react-router-dom'
 import {NavbarItem} from './NavbarItem'
 
 export const Navbar = () => {
-    const [items, setItems] = useState([
+    const [items] = useState([
         {id: 1, path: '/', title: 'Поиск'},
         {id: 2, path: '/favorite', title: 'Избранное'}
     ])
@@ -21,7 +21,7 @@ export const Navbar = () => {
                         <ul>
                         <li>
                             <NavLink to='/' activeClassName={classes.trolling}>
-                                <img src='./assets/img/sibdevLogo.svg'/>
+                                <img src='./assets/img/sibdevLogo.svg' alt='logo'/>
                             </NavLink>
                             </li>
                         {items.map(item => (

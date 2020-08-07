@@ -8,10 +8,12 @@ import {Provider} from 'react-redux'
 import {createStore, compose, applyMiddleware} from 'redux'
 import {rootReducer} from './store/reducers/rootReducer'
 import thunk from 'redux-thunk'
+import { authRedirectMiddleware } from './middleware/authRedirect'
 
 const store = createStore(rootReducer, compose(
   applyMiddleware(
-    thunk
+    thunk,
+    authRedirectMiddleware
   ),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 ))

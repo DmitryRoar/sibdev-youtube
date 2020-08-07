@@ -1,21 +1,21 @@
 import {CHANGE_TYPE, SOMETHING_ERROR, CHANGE_INPUT_EMAIL, CHANGE_INPUT_PASSWORD, RESET_INPUTS, GET_TOKEN} from "./types"
 import axios from 'axios'
-import {authToken} from '../../environment/environment'
+import {fbAuthToken} from '../../environment/environment'
 export function changeType() {
     return {    
         type: CHANGE_TYPE
     }
 }
 
-export function submitButton(payload) {
+export function submitButton(payload, history) {
     return async dispatch => {
 
         try {
-            dispatch(getToken())
-            const response = await axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${authToken}`, payload)
+            const response = await axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${fbAuthToken}`, payload)
             localStorage.setItem('token', response.data.idToken)
-            
+            dispatch(getToken())
             dispatch(resetInputs())
+            history.push('/')
         } catch (e) {
             dispatch(somethingError())
             console.log(e)

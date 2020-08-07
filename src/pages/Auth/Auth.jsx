@@ -14,24 +14,17 @@ const Auth = ({history}) => {
         authorized: state.auth.authorized
     }))
 
-    const preSubmitHandler = () => {
-
+    const submitHandler = (event) => {
         if (!(authReducer.email.trim() && authReducer.password.trim())) return
         const data = {
             email: authReducer.email,
             password: authReducer.password,
             returnSecureToken: true
         }
-
-        dispatch(submitButton(data))
-    }
-
-    const submitHandler = (event) => {
-        if (authReducer.authorized) {
-            history.push('/')
-            event.preventDefault()
-        }
-
+        dispatch(submitButton(data, history))
+        
+ 
+        event.preventDefault()
     }
 
     const changeInputHandler = (input, event) => {
@@ -46,10 +39,11 @@ const Auth = ({history}) => {
     if (authReducer.error) clsInputs.push(classes.error)
 
     return (
+        <>
         <div className={classes.Wrapper}>
             <div className={classes.Auth}>
                 <div className={classes.Logo}>
-                    <img src="./assets/img/sibdevLogo.svg" alt=""/>
+                    <img src="./assets/img/sibdevLogo.svg" alt="logo"/>
                 </div>
                 
                 <form className={classes.Form} onSubmit={submitHandler}>
@@ -76,14 +70,12 @@ const Auth = ({history}) => {
                             autoComplete='off'
                         />
                         <button onClick={dispatch.bind(null, changeType())} type='button'>
-                            {/* доделать */}
                             {authReducer.hidden ? <i className="far fa-eye-slash"></i> : <i className="far fa-eye"></i>}
                         </button>
                     </div>
 
                     <button 
                     className={classes.SignIn}
-                    onClick={preSubmitHandler}
                     type='submit'
                     >
                         Войти
@@ -91,6 +83,7 @@ const Auth = ({history}) => {
                 </form>
             </div>
         </div>
+        </>
     )
 }
 
