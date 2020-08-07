@@ -1,0 +1,118 @@
+$card-width: 245px;
+
+.Input {
+    position: relative;
+
+    i {
+        opacity: 0;
+        color: var(--theme-color);
+        font-size: 24px;
+        transition: 1s;
+    }
+
+    input {
+        padding: 13px 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px 0 0 4px;
+        width: 950px;
+        background: none;
+        font-size: 20px;
+        transition: 1s;
+
+        &:focus  {
+            border: 1px solid #1390E5;
+            background: #eef7fe;
+        }
+    }
+
+    button {
+        background: 0;
+        position: absolute;
+        right: 15px;
+        top: 14px;
+    }
+    
+}
+
+.Form {
+    display: flex;
+
+    .SubmitBtn {
+        background: var(--theme-color);
+        color: #fff;
+        padding: 14px 30px;
+        border-radius: 0 4px 4px 0;
+        font-size: 20px;
+    }
+}
+
+.SearchResultContent {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+
+    small {
+        margin: 0 0 0 15px;
+        color: #b9b9ba;
+        font-size: 16px;
+    }
+}
+
+.SearchResultWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ChangeGrid {
+    i {
+        font-size: 24px;
+
+        &:nth-child(1) {
+            color: #bbb;
+        }
+
+        &:last-child {
+            margin-left: 18px;
+        }
+    }
+
+    button {
+        background: none;
+    }
+}
+
+.GridContent {
+    margin: 20px 0 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.Card {
+    min-height: 226px;
+    width: $card-width;
+}
+
+.CardImg {
+    img {
+        max-height: 138px;
+        width: 100%;
+    }
+}
+
+.CardTitle {
+    max-width: $card-width;
+    margin: 8px 0;
+    font-weight: 600;
+}
+
+.CardDescription {
+    color: #8b8b8c;
+}
+
+.CardTitle, .CardDescription p, .CardDescription small {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 14px;
+}

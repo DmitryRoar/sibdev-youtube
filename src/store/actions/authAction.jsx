@@ -1,6 +1,8 @@
 import {CHANGE_TYPE, SOMETHING_ERROR, CHANGE_INPUT_EMAIL, CHANGE_INPUT_PASSWORD, RESET_INPUTS, GET_TOKEN} from "./types"
 import axios from 'axios'
 import {fbAuthToken} from '../../environment/environment'
+
+
 export function changeType() {
     return {    
         type: CHANGE_TYPE

@@ -1,13 +1,12 @@
 .Content {
+    flex-direction: column;
+    align-items: center;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: calc(100vh - 80px);
-    flex-direction: column;
+    transform: translateY(40px);
 }
 
 .SearchWrapper {
-    
     transition: 1s;
 }
 
@@ -18,24 +17,16 @@
     transition: 1s;
 }
 
-.Form {
-    display: flex;
+.SearchWrapper.SearchSubmit {
+    .Title {
+        text-align: start;
+    }
 
-    .SubmitBtn {
-        background: var(--theme-color);
-        color: #fff;
-        padding: 14px 30px;
-        border-radius: 0 4px 4px 0;
-        font-size: 20px;
+    i {
+        opacity: 1;
     }
 }
 
-.SearchWrapper.SearchSubmit {
-    animation: searchVideos 2s;
-    transform: translateY(-200px);
-}
-
-@keyframes searchVideos {
-    from {transform: translate(0)}
-    to {transform: translateY(-200px)}
+.ContentWrapper {
+    margin: 50px 0 0 0;
 }
