@@ -1,9 +1,10 @@
-import { SUBMIT_CLICK_BUTTON, SEARCH_VALUE, TAKE_DATA, CLEAR_DATA } from "../actions/types"
+import { SUBMIT_CLICK_BUTTON, SEARCH_VALUE, TAKE_DATA, CLEAR_DATA, HORIZONTAL_GRID, VERTICAL_GRID, CLEAR_INPUT } from "../actions/types"
 
 const initialState = {
     searchValue: '',
     submit: false,
-    data: []
+    data: [],
+    grid: true
 }
 
 export const homeReducer = (state = initialState, action) => {
@@ -15,7 +16,13 @@ export const homeReducer = (state = initialState, action) => {
         case TAKE_DATA:
             return {...state, data: [...state.data, ...action.payload]}
         case CLEAR_DATA:
-            return {...state, data: []}
+            return {...state, data: [], searchValue: '', grid: true}
+        case CLEAR_INPUT:
+            return {...state, submit: false}
+        case HORIZONTAL_GRID: 
+            return {...state, grid: true}
+        case VERTICAL_GRID:
+            return {...state, grid: false}
         default:
             return state
     }

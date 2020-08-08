@@ -8,12 +8,13 @@ export const SearchInput = () => {
     const inputRef = useRef(null)
 
     const submitHandler = (event) => {
+        event.preventDefault()
         const value = inputRef.current.value
+        if (!value.trim()) return 
+
         dispatch(submitButton())
         dispatch(searchVideos(value))
         dispatch(searchValue(value))
-
-        event.preventDefault()
     }
 
 

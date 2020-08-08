@@ -10,7 +10,8 @@ import { SearchResult } from '../../components/Search/SearchResult'
 export const Home = ({history}) => {
     const homeReducer = useSelector(state => ({
         submit: state.home.submit,
-        searchValue: state.home.searchValue
+        searchValue: state.home.searchValue,
+        data: state.home.data
     }))
 
     useEffect(() => {
@@ -39,15 +40,16 @@ export const Home = ({history}) => {
                             homeReducer.submit && 
                             <>
                                 <SearchResult />
-                                <SearchVideos />
+                                {
+                                    homeReducer.data 
+                                    ? <SearchVideos /> 
+                                    : <p style={{textAlign: 'center', marginTop: 50}}>Empty</p>
+                                }
                             </>
                         }   
                         </div>
                     </div>
                 </div>
-
-                
-
             </div>
         </>
     )

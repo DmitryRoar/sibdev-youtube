@@ -2,14 +2,18 @@ import React, {useState} from 'react'
 import classes from './Navbar.module.scss'
 import {NavLink, Link} from 'react-router-dom'
 import {NavbarItem} from './NavbarItem'
+import {useDispatch} from 'react-redux'
+import {clearInput} from '../../store/actions/homeAction'
 
 export const Navbar = () => {
+    const dispatch = useDispatch()
     const [items] = useState([
         {id: 1, path: '/', title: 'Поиск'},
         {id: 2, path: '/favorite', title: 'Избранное'}
     ])
 
     const logoutHandler = () => {
+        dispatch(clearInput())
         localStorage.clear()
     }
 

@@ -68,10 +68,6 @@ $card-width: 245px;
     i {
         font-size: 24px;
 
-        &:nth-child(1) {
-            color: #bbb;
-        }
-
         &:last-child {
             margin-left: 18px;
         }
@@ -86,6 +82,7 @@ $card-width: 245px;
     margin: 20px 0 0 0;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
 }
 
 .Card {
@@ -115,4 +112,48 @@ $card-width: 245px;
     white-space: nowrap;
     overflow: hidden;
     font-size: 14px;
+}
+
+.VerticalGrid {
+    display: block;
+
+    .Card {
+        display: flex;
+        min-height: 88px;
+        max-height: 88px;
+        margin: 0 0 32px 0;
+        width: 100%;
+    }
+
+    .CardImg {
+        margin: 0 20px 0 0;
+
+        img {
+            width: 157px;
+            height: 88px;
+        }
+    }
+
+    .CardTitle {
+        max-width: 500px;
+    }
+
+    .CardTitle, .CardDescription p, .CardDescription small {
+        font-size: 16px;
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; 
+        -webkit-box-orient: vertical;
+    }
+
+    .CardDescriptionWrapper {
+        position: relative;
+    }
+
+    .CardDescription {
+        position: absolute;
+        bottom: 0
+    }
 }

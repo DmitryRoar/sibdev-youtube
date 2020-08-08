@@ -4,24 +4,32 @@ import {useSelector} from 'react-redux'
 
 export const SearchVideos = () => {
     const items = useSelector(state => ({
-        data: state.home.data
+        data: state.home.data,
+        grid: state.home.grid
     }))
 
+    const cls = [classes.GridContent]
+    if (!items.grid) {
+        cls.push(classes.VerticalGrid)
+    } 
+
     return (
-        <div className={classes.GridContent} onClick={() => console.log(items.data)}>
+        <div className={cls.join(' ')}>
             {items.data.map(item => {
                 return (
-                    <div className={classes.Card} key={item.id.videoId}>
+                    <div className={classes.Card} key={Math.random()}>
                         <div className={classes.CardImg}>
                             <img src={item.snippet.thumbnails.medium.url} alt="name+id"/>
                             </div>
                 
+                        <div className={classes.CardDescriptionWrapper}>
                             <div className={classes.CardTitle}>
                                 {item.snippet.title}
                             </div>
                             <div className={classes.CardDescription}>
                                 <p>{item.snippet.channelTitle}</p>
                                 <small>просмотры типа</small>
+                            </div>
                         </div>
                     </div>
                 )
