@@ -7,17 +7,18 @@ import FavoriteModal from '../../components/Favorite/FavoriteModal/FavoriteModal
 export const Favorite = () => {
     const dispatch = useDispatch()
     const factoryReducer = useSelector(state => ({
-        openMainModal: state.favorite.openMainModal
+        openMainModal: state.favorite.openMainModal,
+        changeModal: state.favorite.changeModal
     }))
 
     useEffect(() => {
         dispatch(closeModal())
         // eslint-disable-next-line
     }, [])
-
+    
     return (
         <>
-            {   factoryReducer.openMainModal
+            { factoryReducer.openMainModal
                 ? <FavoriteModal title='Сохранить запрос'/>
                 : <FavoriteList />
             }

@@ -8,3 +8,32 @@
     width: 100%;
     max-width: 1040px;
 }
+
+.ListContent {
+    background: #fff;
+    border-bottom: 1px solid #F1F1F1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Text {
+    font-size: 16px;
+    padding: 13px 0 14px 20px;
+}
+
+.ButtonWrapper {
+    button {
+        background: none;
+    }
+}
+
+.ChangeButton {
+    color: #1390E5 !important;
+    margin: 0 30px 0 0;
+}
+
+.RemoveButton {
+    color: #FF0000 !important;
+    margin: 0 20px 0 0;
+}

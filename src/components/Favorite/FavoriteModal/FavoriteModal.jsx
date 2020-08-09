@@ -4,20 +4,23 @@ import { FavoriteItem } from './FavoriteInput'
 import {withRouter} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { closeSubmit, clearData } from '../../../store/actions/homeAction'
+import {clearMainValue, addItem} from '../../../store/actions/favoriteAction'
 
 const FavoriteModal = ({title, history}) => {
     const dispatch = useDispatch()
     const selectors = useSelector(state => ({
-        favoriteSearchValue: state.favorite.searchValue 
+        favoriteSearchValue: state.favorite.searchValue,
+        data: state.favorite.data,
+        changeModal: state.favorite.changeModal
     }))
 
     const submitHandler = event => {
         event.preventDefault()
-        
-        const localVals = JSON.parse(localStorage.getItem('favorite-list')) || [];
-        localStorage.setItem('favorite-list', JSON.stringify( [...localVals, selectors.favoriteSearchValue] ))
+        localStorage.setItem('favorite-item', JSON.stringify( [selectors.favoriteSearchValue] ))
+        dispatch(addItem([selectors.favoriteSearchValue]))
 
         history.push('/')
+        dispatch(clearMainValue())
         dispatch(clearData())
         dispatch(closeSubmit())
     }
@@ -39,7 +42,7 @@ const FavoriteModal = ({title, history}) => {
 
                             <div className={classes.Button}>
                                 <button type='button' onClick={redirectHandler}>Не сохранять</button>
-                                <button type='submit' className={classes.Active}>Сохарнить</button>
+                                <button type='submit' className={classes.Active}>Сохранить</button>
                             </div>
                         </form>
                     </div>
