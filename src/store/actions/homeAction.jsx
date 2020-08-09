@@ -1,4 +1,4 @@
-import {SUBMIT_CLICK_BUTTON, SEARCH_VALUE, TAKE_DATA, CLEAR_DATA, HORIZONTAL_GRID, VERTICAL_GRID, CLEAR_INPUT} from "./types"
+import {SUBMIT_CLICK_BUTTON, SEARCH_VALUE, TAKE_DATA, CLEAR_DATA, HORIZONTAL_GRID, VERTICAL_GRID, CLOSE_SUBMIT} from "./types"
 import {ytbToken} from '../../environment/environment'
 import axios from 'axios'
 
@@ -15,9 +15,9 @@ export function searchVideos(searchInput) {
     }
 }
 
-export function clearInput() {
+export function closeSubmit() {
     return {
-        type: CLEAR_INPUT
+        type: CLOSE_SUBMIT
     }
 }
 

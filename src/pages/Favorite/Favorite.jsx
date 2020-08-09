@@ -1,11 +1,29 @@
 import React from 'react'
-import { Navbar } from '../../components/Navbar/Navbar'
+import classes from './Favorite.module.scss'
+import {Navbar}  from '../../components/Navbar/Navbar'
 
 export const Favorite = () => {
     return (
         <>
             <Navbar/>
-            <h1>Favorite</h1>
+            
+            <div className={classes.Wrapper}>
+                <div className={classes.Content}>
+                    <div className={classes.Title}>Избранное</div>
+
+                    <div className={classes.ListWrapper}>
+                        <div className={classes.List}>
+                            somethingList   
+                        </div>
+                        <div className={classes.List}>
+                            somethingList   
+                        </div>
+                        <div className={classes.List}>
+                            somethingList   
+                        </div>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

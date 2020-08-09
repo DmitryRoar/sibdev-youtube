@@ -3,7 +3,7 @@ import classes from './Navbar.module.scss'
 import {NavLink, Link} from 'react-router-dom'
 import {NavbarItem} from './NavbarItem'
 import {useDispatch} from 'react-redux'
-import {clearInput} from '../../store/actions/homeAction'
+import {closeSubmit} from '../../store/actions/homeAction'
 
 export const Navbar = () => {
     const dispatch = useDispatch()
@@ -13,7 +13,7 @@ export const Navbar = () => {
     ])
 
     const logoutHandler = () => {
-        dispatch(clearInput())
+        dispatch(closeSubmit())
         localStorage.clear()
     }
 
