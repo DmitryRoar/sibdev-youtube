@@ -17,7 +17,7 @@ export const homeReducer = (state = initialState, action) => {
         case TAKE_DATA:
             return {...state, data: [...state.data, ...action.payload]}
         case CLEAR_DATA:
-            return {...state, data: [], searchValue: '', grid: true}
+            return {...state, data: [], grid: true}
         case CLOSE_SUBMIT:
             return {...state, submit: false}
         case HORIZONTAL_GRID: 

@@ -1,10 +1,10 @@
 import React from 'react'
 import classes from './FavoriteModal.module.scss'
-import { FavoriteItem } from './FavoriteInput'
-import {withRouter} from 'react-router-dom'
+import { FavoriteInput } from './FavoriteInput'
+import {withRouter, Link} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { closeSubmit, clearData } from '../../../store/actions/homeAction'
-import {clearMainValue, addItem} from '../../../store/actions/favoriteAction'
+import { addItem, changeModalClose} from '../../../store/actions/favoriteAction'
 
 const FavoriteModal = ({title, history}) => {
     const dispatch = useDispatch()
@@ -20,14 +20,13 @@ const FavoriteModal = ({title, history}) => {
         dispatch(addItem([selectors.favoriteSearchValue]))
 
         history.push('/')
-        dispatch(clearMainValue())
+        // dispatch(clearMainValue())
         dispatch(clearData())
         dispatch(closeSubmit())
     }
 
-    const redirectHandler = () => {
-        history.push('/')
-        dispatch(closeSubmit())
+    const saveHandler = () => {
+        dispatch(changeModalClose())
     }
 
     return (
@@ -38,11 +37,11 @@ const FavoriteModal = ({title, history}) => {
                         <h3 className={classes.Title}>{title}</h3>
 
                         <form onSubmit={submitHandler} className={classes.Form}>
-                            <FavoriteItem />
+                            <FavoriteInput />
 
                             <div className={classes.Button}>
-                                <button type='button' onClick={redirectHandler}>Не сохранять</button>
-                                <button type='submit' className={classes.Active}>Сохранить</button>
+                                <button><Link to='/'>Не сохранять</Link></button>
+                                <button type='submit' className={classes.Active} onClick={saveHandler}>Сохранить</button>
                             </div>
                         </form>
                     </div>

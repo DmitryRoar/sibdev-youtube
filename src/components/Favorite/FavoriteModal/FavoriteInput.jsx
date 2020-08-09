@@ -4,11 +4,11 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { favoriteSearchValue } from '../../../store/actions/favoriteAction'
 
-export const FavoriteItem = () => {
+export const FavoriteInput = () => {
     const dispatch = useDispatch()
     const selectors = useSelector(state => ({
         homeSearchValue: state.home.searchValue,
-        favoriteSearchValue: state.favorite.searchValue
+        favoriteSearchValue: state.favorite.searchValue,
     }))
     const [inputs, setInputs] = useState({
         inputRef: 1,
@@ -29,7 +29,7 @@ export const FavoriteItem = () => {
                 type="text" 
                 name="text" 
                 readOnly 
-                placeholder={selectors.homeSearchValue}
+                placeholder={selectors.homeSearchValue || 'denied :3'}
                 />
             </div>
             <div className={classes.Input}>

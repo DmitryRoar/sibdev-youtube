@@ -1,4 +1,4 @@
-import { OPEN_MODAL, CLOSE_MODAL, FAVORITE_SEARCH_VALUE, OPEN_MAIN_MODAL, CLOSE_MAIN_MODAL, CLEAR_MAIN_VALUE, ADD_ITEM, REMOVE_ITEM, EDIT_ITEM, CHANGE_MODAL_OPEN, CHANGE_MODAL_CLOSE } from "./types";
+import { OPEN_MODAL, CLOSE_MODAL, FAVORITE_SEARCH_VALUE, OPEN_MAIN_MODAL, CLOSE_MAIN_MODAL, CLEAR_MAIN_VALUE, ADD_ITEM, REMOVE_ITEM, EDIT_ITEM, CHANGE_MODAL_CLOSE, CHANGE_MODAL_OPEN, REMOVE_PREVIOUS_ITEM } from "./types";
 
 export function openModal() {
     return {
@@ -67,5 +67,12 @@ export function changeModalOpen() {
 export function changeModalClose() {
     return {
         type: CHANGE_MODAL_CLOSE
+    }
+}
+
+export function removePreviousItem(payload) {
+    return {
+        type: REMOVE_PREVIOUS_ITEM,
+        payload
     }
 }

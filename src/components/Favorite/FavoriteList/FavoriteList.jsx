@@ -3,14 +3,14 @@ import classes from './FavoriteList.module.scss'
 import { Navbar } from '../../Navbar/Navbar'
 import { useSelector, useDispatch } from 'react-redux'
 import { FavoriteItem } from './FavoriteItem'
-import { removeItem, editItem, changeModalOpen } from '../../../store/actions/favoriteAction'
-import FavoriteModal from '../FavoriteModal/FavoriteModal'
+import { removeItem, editItem, changeModalOpen, changeModalClose, removePreviousItem } from '../../../store/actions/favoriteAction'
 
 export const FavoriteList = () => {
     const dispatch = useDispatch()
     const selectors = useSelector(state => ({
         data: state.favorite.data,
-        searchValue: state.home.searchValue
+        searchValue: state.home.searchValue,
+        search: state.favorite.searchValue
     }))
 
     useEffect(() => {
@@ -20,21 +20,20 @@ export const FavoriteList = () => {
         } else {
             localStorage.setItem('favorite-item', JSON.stringify(selectors.data))
         }
+        dispatch(changeModalClose())
         // eslint-disable-next-line
     }, [])
 
-   const removeHandler = (idx) => {
+    const removeHandler = (idx) => {
         dispatch(removeItem(idx))
         localStorage.setItem('favorite-item', JSON.stringify(selectors.data))
-   }
+    }
    
-   const changeHandler = (idx) => {
+    const changeHandler = (idx) => {
         dispatch(changeModalOpen()) 
-        dispatch(editItem(idx)) 
-        console.log(selectors.searchValue)
-        return <FavoriteModal title='hello'/>
-        // dispatch(searchValue(selectors.searchValue))
-   }
+        dispatch(editItem(idx))
+        dispatch(removePreviousItem(idx))
+    }
 
     return (
         <>
