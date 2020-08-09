@@ -1,10 +1,15 @@
 import React, {useRef} from 'react'
 import classes from './Search.module.scss'
-import {useDispatch} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 import {submitButton, searchVideos, searchValue} from '../../store/actions/homeAction'
+import { openModal, closeModal } from '../../store/actions/favoriteAction'
+import { FavoriteModal } from '../FavoriteModal/FavoriteModal'
 
 export const SearchInput = () => {
     const dispatch = useDispatch()
+    const favoriteReducer = useSelector(state => ({
+        activeButton: state.favorite.activeButton
+    }))
     const inputRef = useRef(null)
 
     const submitHandler = (event) => {
@@ -18,15 +23,31 @@ export const SearchInput = () => {
     }
 
 
+    const changeHeartHandler = () => {
+        dispatch(openModal())
+    }
+
+
     return (
-        <form className={classes.Form} onSubmit={submitHandler}>
-            <div className={classes.Input}>
-                <input type="text" placeholder='Что хотите посмотреть?' ref={inputRef} />
-                <button type='button'>
-                <i className="far fa-heart" />
-                </button>
-            </div>
-            <button type='submit' className={classes.SubmitBtn}>Найти</button>
-        </form>
+        <>
+            <form className={classes.Form} onSubmit={submitHandler}>
+                <div className={classes.Input}>
+                    <input type="text" placeholder='Что хотите посмотреть?' ref={inputRef} />
+                    <button type='button' onClick={changeHeartHandler}>
+                        {   !favoriteReducer.activeButton 
+                            ? <i className="far fa-heart" />
+                            : <img src='./assets/img/heartActive.svg' alt='heart active'/>
+                        }
+                    </button>
+                </div>
+                <button type='submit' className={classes.SubmitBtn}>Найти</button>
+            </form>
+
+            {
+                favoriteReducer.activeButton 
+                &&
+                <FavoriteModal />
+            }
+        </>
     )
 }

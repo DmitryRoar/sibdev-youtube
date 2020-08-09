@@ -28,13 +28,12 @@ export const SearchVideos = () => {
                             </div>
                             <div className={classes.CardDescription}>
                                 <p>{item.snippet.channelTitle}</p>
-                                <small>просмотры типа</small>
+                                <small>0 просмотров</small>
                             </div>
                         </div>
                     </div>
                 )
             })}
-            
         </div>
     )
 }

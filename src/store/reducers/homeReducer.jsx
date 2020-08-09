@@ -4,7 +4,8 @@ const initialState = {
     searchValue: '',
     submit: false,
     data: [],
-    grid: true
+    grid: true,
+    loading: false
 }
 
 export const homeReducer = (state = initialState, action) => {

@@ -7,7 +7,7 @@ export function searchVideos(searchInput) {
         if (!searchInput) return
         try {
             dispatch(clearData())
-            const response = await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=12&q=${encodeURIComponent(searchInput)}&key=${ytbToken}`)
+            const response = await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=12&q=${encodeURIComponent(searchInput)}&key=${ytbToken}`)
             dispatch(takeData(response.data.items))
         } catch (e) {
             console.log(e)

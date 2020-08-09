@@ -15,7 +15,7 @@ export const SearchResult = () => {
         <div className={classes.SearchResultWrapper}>
             <div className={classes.SearchResultContent}>
                 <p>Видео по запросу <strong>«{homeReducer.searchValue || 'empty'}»</strong></p>
-                <small>кол-во результатов</small>
+                <small>4242</small>
             </div>
             <div className={clsGrid.join(' ')}>
                 <GridButton />

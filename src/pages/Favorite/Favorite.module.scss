@@ -1,10 +1,10 @@
-.Wrapper {
-    width: 1440px;
+.Favorite__Container_Title {
+    font-size: 28px;
+    margin: 0 0 40px 0;
 }
 
-.Content {
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
-    margin: 40px 0 0 0;
+.Favorite {
+    margin: 40px auto 0 auto;
+    width: 100%;
+    max-width: 1040px;
 }

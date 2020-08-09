@@ -10,6 +10,10 @@ $card-width: 245px;
         transition: 1s;
     }
 
+    img {
+        opacity: 0;
+    }
+
     input {
         padding: 13px 15px;
         border: 1px solid #ddd;
