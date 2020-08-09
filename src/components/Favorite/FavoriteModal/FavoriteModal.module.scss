@@ -1,0 +1,172 @@
+$input-width: calc(100% - 80px);
+$color-theme: #1390E5;
+
+.FavoriteModal {
+    background: #8ccdfa;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ContentWrapper {
+    width: 510px;
+    height: 573px;
+    background: #fff;
+    box-shadow: 0px 10px 50px rgba(19, 144, 229, 0.8);
+    border-radius: 10px;
+
+    .Content {
+        padding: 36px 0 0 0;
+    }
+
+    .Title {
+        text-align: center;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .Input {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: $input-width;
+        margin: 0 auto 24px auto;
+        line-height: 16px;
+
+        &:nth-child(1) {
+            margin: 20px auto 24px auto;
+        }
+
+        label {
+            margin-bottom: 3px;
+        }
+
+
+        input {
+            background: #fff;
+            border: 1px solid rgba(23, 23, 25, 0.1);
+            border-radius: 5px;
+            padding: 12px 15px;
+            font-size: 20px;
+            color: #000;
+
+            &::placeholder {
+                color: #bfbfbf;
+            }
+
+            &:focus {
+                background: #FAFAFA;
+            }
+        }
+    }
+}
+
+.InputRangeWrapper {
+    display: flex;
+    width: $input-width;
+    margin: 0 auto 24px auto;
+    justify-content: space-between;
+}
+
+.InputName::before {
+    content: '* ';
+    color: red;
+}
+
+.InputSelect {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: $input-width;
+    margin: 0 auto 24px auto;
+    line-height: 16px;
+    position: relative;
+
+    &::before {
+        content: "\f107";
+        font-family: "Font Awesome 5 Free"; 
+        font-weight: 900; 
+        position: absolute;
+        right: 20px;
+        bottom: 40px;
+        color: #D1D1D1;
+        height: 5px;
+        width: 10px;
+        pointer-events: none;
+    }
+
+    select {
+        appearance: none;
+        background: #fff;
+        border: 1px solid rgba(23, 23, 25, 0.1);
+        border-radius: 5px;
+        padding: 12px 15px;
+        font-size: 20px;
+        color: #bfbfbf;
+    }
+
+        label {
+            margin-bottom: 3px;
+        }
+}
+
+.InputRange {
+    appearance: none;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    outline: none;
+
+    label {
+        margin-bottom: 4px;
+    }
+
+    input {
+        background: linear-gradient(0deg, rgba(19, 144, 229, 0.8), rgba(19, 144, 229, 0.8)), #FFFFFF;
+
+        &::range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 0px;
+        }
+    }
+}
+
+
+.InputRangeCount {
+    padding: 12px 15px;
+    font-size: 20px;
+    border: 1px solid rgba(23, 23, 25, 0.2);
+    border-radius: 5px;
+}
+
+.Button {
+    position: absolute;
+    bottom: calc(-174px + 32px);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+
+    button {
+        border: 1px solid $color-theme;
+        border-radius: 5px;
+        color: $color-theme;
+        background: none;
+        padding: 14px 20px;
+        font-size: 20px;
+        min-width: 170px;
+        max-width: 170px;
+        margin: 0 20px 0 0;
+    }
+}
+
+.Active {
+    background: $color-theme !important;
+    color: #fff !important;
+}
+
+.Form {
+    position: relative;
+}

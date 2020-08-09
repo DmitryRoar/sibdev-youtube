@@ -1,39 +1,26 @@
 import React, {useEffect} from 'react'
-import classes from './Favorite.module.scss'
-import {Navbar}  from '../../components/Navbar/Navbar'
-import {useDispatch} from 'react-redux'
-import { closeModal } from '../../store/actions/favoriteAction'
+import {useDispatch, useSelector} from 'react-redux'
+import {closeModal} from '../../store/actions/favoriteAction'
+import { FavoriteList } from '../../components/Favorite/FavoriteList/FavoriteList'
+import FavoriteModal from '../../components/Favorite/FavoriteModal/FavoriteModal'
 
 export const Favorite = () => {
     const dispatch = useDispatch()
+    const factoryReducer = useSelector(state => ({
+        openMainModal: state.favorite.openMainModal
+    }))
 
     useEffect(() => {
         dispatch(closeModal())
+        // eslint-disable-next-line
     }, [])
 
     return (
         <>
-            <Navbar/>
-
-            <div className={classes.Favorite}>
-                <div className={classes.Wrapper}>
-                    <div className={classes.Favorite__Container}>
-                        <h1 className={classes.Favorite__Container_Title}>Избранное</h1>
-
-                        <div className={classes.ListWrapper}>
-                            <div className={classes.ListContent}>
-                                somethingList
-                            </div>
-                            <div className={classes.ListContent}>
-                                somethingList
-                            </div>
-                            <div className={classes.ListContent}>
-                                somethingList
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {   factoryReducer.openMainModal
+                ? <FavoriteModal title='Сохранить запрос'/>
+                : <FavoriteList />
+            }
         </>
     )
 }

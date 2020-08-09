@@ -22,12 +22,8 @@
         text-align: start;
     }
 
-    i {
-        opacity: 1;
-    }
-
-    img {
-        opacity: 1;
+    i, img {
+        display: block;
     }
 }
 

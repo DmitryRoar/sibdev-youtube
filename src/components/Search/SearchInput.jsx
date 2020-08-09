@@ -2,8 +2,8 @@ import React, {useRef} from 'react'
 import classes from './Search.module.scss'
 import {useSelector, useDispatch} from 'react-redux'
 import {submitButton, searchVideos, searchValue} from '../../store/actions/homeAction'
-import { openModal, closeModal } from '../../store/actions/favoriteAction'
-import { FavoriteModal } from '../FavoriteModal/FavoriteModal'
+import {openModal} from '../../store/actions/favoriteAction'
+import FavoriteAlert from '../Favorite/FavoriteAlert/FavoriteAlert'
 
 export const SearchInput = () => {
     const dispatch = useDispatch()
@@ -46,7 +46,7 @@ export const SearchInput = () => {
             {
                 favoriteReducer.activeButton 
                 &&
-                <FavoriteModal />
+                <FavoriteAlert />
             }
         </>
     )

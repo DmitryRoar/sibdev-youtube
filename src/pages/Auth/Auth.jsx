@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {withRouter} from 'react-router-dom'
 import classes from './Auth.module.scss'
 import {useSelector, useDispatch} from 'react-redux'
 import {changeType, submitButton, changeInputEmail, changeInputPassword} from '../../store/actions/authAction'
+import { closeMainModal } from '../../store/actions/favoriteAction'
 
 const Auth = ({history}) => {
     const dispatch = useDispatch()
@@ -13,6 +14,11 @@ const Auth = ({history}) => {
         error: state.auth.error,
         authorized: state.auth.authorized
     }))
+
+    useEffect(() => {
+        dispatch(closeMainModal())
+        // eslint-disable-next-line
+    }, [])
 
     const submitHandler = (event) => {
         if (!(authReducer.email.trim() && authReducer.password.trim())) return

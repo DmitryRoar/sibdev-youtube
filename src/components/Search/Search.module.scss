@@ -4,14 +4,14 @@ $card-width: 245px;
     position: relative;
 
     i {
-        opacity: 0;
+        display: none;
         color: var(--theme-color);
         font-size: 24px;
         transition: 1s;
     }
 
     img {
-        opacity: 0;
+        display: none;
     }
 
     input {
